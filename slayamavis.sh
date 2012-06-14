@@ -11,7 +11,7 @@ fi
 FILENAME=amavistemp.$(date +%d%m%Y-%s)
 
 ps auxwwf | egrep '^amavis'
-cp -r /var/lib/amavis/tmp/ /home/${SUDO_USER}/${FILENAME} && chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${FILENAME}
+cp -r /var/lib/amavis/tmp/ /home/${SUDO_USER}/${FILENAME} && chown -R ${SUDO_USER}: /home/${SUDO_USER}/${FILENAME}
 slay amavis && service amavis start
 sleep 3
 ps auxwwf | egrep '^amavis'
